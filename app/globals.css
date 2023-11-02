@@ -16,12 +16,65 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@font-face {
+  font-family: "Poppins";
+  src: url(https://cdn.shopify.com/s/files/1/0256/8926/0111/files/Poppins-Light.ttf)
+    format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url(https://cdn.shopify.com/s/files/1/0256/8926/0111/files/Poppins-Regular.ttf)
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url(https://cdn.shopify.com/s/files/1/0256/8926/0111/files/Poppins-SemiBold.ttf)
+    format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ultra-Ultra";
+  src: url(https://cdn.shopify.com/s/files/1/0256/8926/0111/files/GT-Ultra-Standard-Ultra.woff)
+    format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ultra-Ultra";
+  src: url(https://cdn.shopify.com/s/files/1/0256/8926/0111/files/GT-Ultra-Standard-Ultra.woff2)
+    format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ultra-Ultra";
+  src: url(https://cdn.shopify.com/s/files/1/0256/8926/0111/files/GT-Ultra-Standard-Ultra.ttf)
+    format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ultra";
+  src: url(https://cdn.shopify.com/s/files/1/0256/8926/0111/files/GT-Ultra-Standard-Bold.woff)
+    format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }

@@ -54,7 +54,7 @@ export default function Accordion(props: AccordionProps) {
         description="Posez votre flacon tête en haut, languette ouverte et laissez reposer 6h minimum"
       />
             <AccordionCard
-        imageSrc="/shower01.png"
+        imageSrc="/shower04.png"
         number={4}
         description="Refermez la languette, secouez un peu, moussez !"
       />

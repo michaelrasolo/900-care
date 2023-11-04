@@ -18,8 +18,21 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        "almost-black": "#181716",
+        "dark-green": "#36AB63",
+        "light-green": "#E4FFEE",
+        "grey": "#BBBABA",
+        "yellow":"#FFE967",
+        'light-yellow':"#FFFBE1",
+        'light-pink':"#FFADD5",
+        'light-blue':"#C7E5FA",
+      },
+      height:{
+        'screen-minus-90': 'calc(100vh - 90px)',
+      }
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/aspect-ratio")],
 };
 export default config;

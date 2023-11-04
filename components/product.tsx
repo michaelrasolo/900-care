@@ -28,7 +28,6 @@ className="rounded-large"
       <Accordion
         title="Comment utiliser mon gel douche ?"
         isOpen={isOpen}
-        data="Accordion Content"
         toggleAccordion={toggleAccordion}
       />    </div>
   );

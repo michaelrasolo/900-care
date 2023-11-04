@@ -4,7 +4,7 @@ import Image from "next/image";
 function Hero() {
   return (
     <div className="flex h-screen-minus-90 item-stretch w-screen gap-2.5 border-t">
-      <div className="w-1/2 h-screen-minus-90 shrink-0 relative">
+      <div className="w-5/12 h-screen-minus-90 shrink-0 relative">
         <Image
           src="/hero.png"
           alt="Home image"

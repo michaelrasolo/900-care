@@ -27,6 +27,7 @@ const config: Config = {
         'light-yellow':"#FFFBE1",
         'light-pink':"#FFADD5",
         'light-blue':"#C7E5FA",
+        'pink':"#FF3395",
       },
       height:{
         'screen-minus-90': 'calc(100vh - 90px)',

@@ -30,6 +30,9 @@ const config: Config = {
       },
       height:{
         'screen-minus-90': 'calc(100vh - 90px)',
+      },
+      borderRadius: {
+        "large":"2.625rem"
       }
     },
   },

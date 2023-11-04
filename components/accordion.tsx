@@ -4,7 +4,6 @@ import AccordionCard from "./accordionCard";
 interface AccordionProps {
   title: string;
   isOpen: boolean;
-  data: string; // Assuming the data should be a string
   toggleAccordion: () => void;
 }
 
@@ -16,9 +15,9 @@ export default function Accordion(props: AccordionProps) {
         onClick={props.toggleAccordion}
       >
         <div className="self-stretch space-x-2.5 text-almost-black text-left font-poppins text-base font-semibold leading-6 transition duration-300">
-          <p>
+          <div>
             {props.title}
-            <span
+            <div
               className={`w-8 h-8 float-right transform transition-transform duration-300 ${
                 props.isOpen ? "rotate-180" : "rotate-0"
               }`}
@@ -32,12 +31,12 @@ export default function Accordion(props: AccordionProps) {
                   +
                 </p>
               )}
-            </span>
-          </p>
+            </div>
+          </div>
         </div>
       </button>
       {props.isOpen && (
-        <div className="grid grid-cols-2 grid-rows-2 p-3 transition ease-in-out duration-500">
+        <div className="grid grid-cols-2 grid-rows-2 p-3 transition-ease-in-out duration-500">
             <AccordionCard
         imageSrc="/shower01.png"
         number={1}
@@ -58,22 +57,6 @@ export default function Accordion(props: AccordionProps) {
         number={4}
         description="Refermez la languette, secouez un peu, moussez !"
       />
-          {/* <div className="flex h-52 p-3 items-center gap-8 ">
-            <Image
-              src="/shower01.png"
-              alt="Your Image"
-              width={64}
-              height={64}
-            />
-            <div className="flex-1 flex flex-col gap-2.5">
-              <div className="w-12 h-12 rounded-full flex justify-center items-center font-ultra text-3xl text-white bg-pink">
-                1
-              </div>
-              <div className="font-poppins text-xl text-almost-black">
-                Insérez deux batônnets dans votre bouteille réutilisable
-              </div>
-            </div>
-          </div> */}
         </div>
       )}
     </div>

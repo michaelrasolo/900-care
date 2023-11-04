@@ -78,3 +78,6 @@
   font-style: normal;
   font-display: swap;
 }
+.transition-ease-in-out {
+  transition: all 500ms ease-in-out;
+}

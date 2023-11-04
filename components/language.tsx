@@ -1,23 +1,22 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from 'next/router';
+
+import en from "@/locales/en";
+import fr from "@/locales/fr";
 
 interface DropdownButtonProps {
   language: string;
   onLanguageChange: (newLanguage: string) => void;
 }
 
-const DropdownButton: React.FC<DropdownButtonProps> = ({
-  language,
-  onLanguageChange,
-}) => {
+function DropdownButton(props: DropdownButtonProps) {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Add event listener when the component mounts
     document.addEventListener("mousedown", handleClickOutside);
-    // Clean up the event listener when the component unmounts
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -28,7 +27,7 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({
   };
 
   const handleSelect = (selectedLanguage: string) => {
-    onLanguageChange(selectedLanguage);
+    props.onLanguageChange(selectedLanguage);
     setOpen(false);
   };
 
@@ -37,7 +36,6 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({
       dropdownRef.current &&
       !dropdownRef.current.contains(event.target as Node)
     ) {
-      // Click was outside the dropdown, so close it
       setOpen(false);
     }
   };
@@ -49,9 +47,9 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({
         type="button"
         className="w-44 bg-white text-center font-poppins text-xl font-semibold leading-[1.5rem] text-almost-black rounded-md border border-gray-300 p-3 gap-1.5 flex justify-center items-center"
       >
-        {language}{" "}
-        {/* Google Chrome doesnt support flag emojis */}
-        {language === "Français" ? (
+        {props.language}{" "}
+        {/* Google Chrome doesn't support flag emojis */}
+        {props.language === "Français" ? (
           <Image src="/french.png" width={20} height={20} alt="French Flag" />
         ) : (
           <Image src="/english.png" width={20} height={20} alt="English Flag" />
@@ -88,6 +86,6 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({
       )}
     </div>
   );
-};
+}
 
 export default DropdownButton;

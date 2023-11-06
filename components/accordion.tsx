@@ -6,6 +6,28 @@ interface AccordionProps {
   isOpen: boolean;
   toggleAccordion: () => void;
 }
+const steps = [
+  {
+    imageSrc: "/shower01.png",
+    number: 1,
+    description: "Insérez deux bâtonnets dans votre bouteille réutilisable",
+  },
+  {
+    imageSrc: "/shower02.png",
+    number: 2,
+    description: "Ajoutez de l'eau chaude jusqu'au trait (240 mL)",
+  },
+  {
+    imageSrc: "/shower03.png",
+    number: 3,
+    description: "Posez votre flacon tête en haut, languette ouverte et laissez reposer 6h minimum",
+  },
+  {
+    imageSrc: "/shower04.png",
+    number: 4,
+    description: "Refermez la languette, secouez un peu, moussez !",
+  },
+];
 
 export default function Accordion(props: AccordionProps) {
   return (
@@ -18,7 +40,7 @@ export default function Accordion(props: AccordionProps) {
           <div>
             {props.title}
             <div
-              className={`w-8 h-8 float-right transform transition-transform duration-300 ${
+              className={`w-8 h-8 float-right transform transition-transform duration-500 ${
                 props.isOpen ? "rotate-180" : "rotate-0"
               }`}
             >
@@ -36,27 +58,15 @@ export default function Accordion(props: AccordionProps) {
         </div>
       </button>
       {props.isOpen && (
-        <div className="grid grid-cols-2 grid-rows-2 p-3 transition-ease-in-out duration-500">
+        <div className="grid grid-cols-2 grid-rows-2 p-3 transition-all transition-ease-in-out duration-1000">
+           {steps.map((step) => (
             <AccordionCard
-        imageSrc="/shower01.png"
-        number={1}
-        description="Insérez deux batônnets dans votre bouteille réutilisable"
-      />
-            <AccordionCard
-        imageSrc="/shower02.png"
-        number={2}
-        description="Ajoutez de l&apos;eau chaude jusqu&apos;au trait (240 mL)"
-      />
-            <AccordionCard
-        imageSrc="/shower03.png"
-        number={3}
-        description="Posez votre flacon tête en haut, languette ouverte et laissez reposer 6h minimum"
-      />
-            <AccordionCard
-        imageSrc="/shower04.png"
-        number={4}
-        description="Refermez la languette, secouez un peu, moussez !"
-      />
+              key={step.number}
+              imageSrc={step.imageSrc}
+              number={step.number}
+              description={step.description}
+            />
+          ))}
         </div>
       )}
     </div>

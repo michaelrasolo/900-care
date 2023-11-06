@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import DropdownButton from "@/components/language";
+import SelectLang from "@/components/language";
 
 export default function Navbar() {
   const [language, setLanguage] = useState("Français");
@@ -22,7 +22,7 @@ export default function Navbar() {
         <div className="flex-1 self-stretch">
           <p></p>
         </div>
-        <DropdownButton language={language} onLanguageChange={handleLanguageChange} />
+        <SelectLang language={language} onLanguageChange={handleLanguageChange} />
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ function Product() {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="p-20 bg-white h-max flex-col flex items-center space-y-10 w-screen text-almost-black">
+    <div className="p-20 bg-white h-full flex-col flex items-center space-y-10 w-screen text-almost-black">
       <h1 className="text-center font-ultra text-6xl font-bold text-almost-black">
         Nos produits à reconstituer
       </h1>

@@ -1,19 +1,22 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { useRouter } from 'next/router';
+import { useTranslation, Trans } from "react-i18next";
 
-import en from "@/locales/en";
-import fr from "@/locales/fr";
-
-interface DropdownButtonProps {
+interface SelectLangProps {
   language: string;
   onLanguageChange: (newLanguage: string) => void;
 }
 
-function DropdownButton(props: DropdownButtonProps) {
+const lang = {
+  "Français": "/french.png",
+  "English": "/english.png",
+};
+
+export default function SelectLang(props: SelectLangProps) {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const t = useTranslation();
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -48,12 +51,7 @@ function DropdownButton(props: DropdownButtonProps) {
         className="w-44 bg-white text-center font-poppins text-xl font-semibold leading-[1.5rem] text-almost-black rounded-md border border-gray-300 p-3 gap-1.5 flex justify-center items-center"
       >
         {props.language}{" "}
-        {/* Google Chrome doesn't support flag emojis */}
-        {props.language === "Français" ? (
-          <Image src="/french.png" width={20} height={20} alt="French Flag" />
-        ) : (
-          <Image src="/english.png" width={20} height={20} alt="English Flag" />
-        )}{" "}
+        <Image src={lang[props.language]} width={20} height={20} alt={`${props.language} Flag`} />
         <Image
           src="/dropdownArrow.png"
           width={16}
@@ -65,27 +63,20 @@ function DropdownButton(props: DropdownButtonProps) {
         />
       </button>
       {open && (
-        <div
-          className="origin-top-right absolute right-0 w-44 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-max-h duration-300 ease-in-out max-h-48"
-        >
+        <div className="origin-top-right absolute right-0 w-44 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-max-h duration-300 ease-in-out max-h-48">
           <div className="py-1">
-            <button
-              onClick={() => handleSelect("Français")}
-              className="block px-4 py-2 text-sm text-almost-black hover-bg-gray-100 w-full text-left"
-            >
-              Français
-            </button>
-            <button
-              onClick={() => handleSelect("English")}
-              className="block px-4 py-2 text-sm text-almost-black hover-bg-gray-100 w-full text-left"
-            >
-              English
-            </button>
+            {Object.keys(lang).map((key) => (
+              <button
+                key={key}
+                onClick={() => handleSelect(key)}
+                className="block px-4 py-2 text-sm text-almost-black hover-bg-gray-100 w-full text-left"
+              >
+                {key}
+              </button>
+            ))}
           </div>
         </div>
       )}
     </div>
   );
 }
-
-export default DropdownButton;
